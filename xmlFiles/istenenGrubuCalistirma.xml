@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="farkli classlardan ortak group ismine sahip methodlari caliştirma">
+    <!--Farklı package ve class lardaki 5 test metodu calistiracagiz
+     Eger istenen metodlarin tek tek xml dosyaina işlenmesi uzun olacaksa
+      calistirilacak metodlara ortak bir istenen tag eklenip xml dosyasında eklenen metodları calıstırabiliriz
+      
+      Bunun içib test hiyerarsisi altında iki hiyerarsi olustururuz
+      1-calişacak veya calısmayacak gruoları belirlemek için <groups> altında <run> altında grup secimi
+      2-uygun hiyerarside bu test metodlarının bulundugu yer
+     -->
+    
+    <test name="mini regretion"></test>
+    <groups>
+        <run>
+            <include name="smoke"></include>
+            <exclude name="mr1"></exclude>
+        </run>
+    </groups>
+    <packages>
+       <package name=""></package>
+    </packages>
+</suite>

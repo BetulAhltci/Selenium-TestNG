@@ -30,7 +30,7 @@ public class C01_Priority {
         Assert.assertTrue(actualUrl.contains(expectedIcerik));
     }
     @Test(priority = 15)
-    public void wiswTesti(){
+    public void wiseTesti(){
         //wiswquarter ana sayfaya gidip.ana sayfaya gittiğimizi test edelim
         Driver.getDriver().get("https://www.wisequarter.com");
         //url amazon içeriyormu

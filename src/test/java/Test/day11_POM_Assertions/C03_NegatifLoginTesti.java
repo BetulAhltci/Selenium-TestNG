@@ -19,6 +19,7 @@ public class C03_NegatifLoginTesti {
 
 @Test
 public void negatifLogin1(){
+    qdPage=new QdPage();
     Driver.getDriver().get(ConfigReader.getProperty("qdUrl"));
     qdPage.ilkLoginLinli.click();
     qdPage.emailKutusu.sendKeys(ConfigReader.getProperty("qdGecerliUsername"));
@@ -26,7 +27,7 @@ public void negatifLogin1(){
     qdPage.loginButton.click();
     Assert.assertTrue(qdPage.emailKutusu.isEnabled());
 }
-    @Test
+    @Test(groups = {"smoke","mr1"})
     public void negatifLogin2(){
     qdPage=new QdPage();
         Driver.getDriver().get(ConfigReader.getProperty("qdUrl"));

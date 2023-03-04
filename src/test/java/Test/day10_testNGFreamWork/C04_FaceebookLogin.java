@@ -9,7 +9,7 @@ import unitilites.ReusableMethods;
 
 public class C04_FaceebookLogin {
 
-    @Test
+    @Test(groups = "smoke")
     public void facebooktesti() {
         FacebookPage facebookPage=new FacebookPage();
         //1 - https://www.facebook.com/ adresine gidin
