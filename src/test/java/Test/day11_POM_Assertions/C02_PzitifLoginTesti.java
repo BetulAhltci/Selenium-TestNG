@@ -1,5 +1,6 @@
 package Test.day11_POM_Assertions;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.QdPage;
@@ -14,6 +15,7 @@ public class C02_PzitifLoginTesti {
         Driver.getDriver().get(ConfigReader.getProperty("qdUrl"));
 
         //Login linkine tiklayalım
+        Driver.getDriver().findElement(By.xpath("//a[text()='Accept']")).click();
         QdPage qdPage= new QdPage();
         qdPage.ilkLoginLinli.click();
 

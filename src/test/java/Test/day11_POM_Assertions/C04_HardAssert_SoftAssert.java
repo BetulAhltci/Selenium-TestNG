@@ -8,37 +8,45 @@ public class C04_HardAssert_SoftAssert {
 
     @Test
     public void hardAssertionTesti(){
-        Assert.assertTrue(5>8);
-        Assert.assertFalse(8==8);
-        Assert.assertEquals(5,9);
-        Assert.assertNotEquals(6,6);
+
+       Assert.assertTrue(5>8); //
+
+       Assert.assertFalse(8==8);
+
+       Assert.assertEquals(5,9);
+
+       Assert.assertNotEquals(6,6);
     }
+
     @Test
     public void softAssertionTesti(){
         /*
-        Junit deki Assert class'ı TestNG dede vardır.
-        Ancak bir test metodunda birden fazla faild olan assertion varsa
-        ilk faild olan assertion'da calısmayı durdurup exception firlattıgımdan,
-        tum hatayı bir defada görup hepsini düzeltme sansımız olmaz
-
-        TestNG bunun için bir alternatif olusturmuz
-        Bu alternatifte Assert class'ındaki static metodları kullanmak yerine
-
-        SoftAssert clas'ından bir obje olusturup o obje uzerinden istediğimiz testleri yapiyoruz
-
-        ancak testlerin sonucunu gormek idtediğimizde softassert.assertall()ile yaptıgımız tüm testlri
-        raporlamasını soyleyerek
+            JUnit'deki Assert class'i TestNG'de de vardir
+            Ancak bir test method'unda birden fazla failed olan assertion varsa
+            ilk failed olan assertion'da calismayi durdurup exception firlattigindan
+            tum hatayi bir defada gorup, hepsini duzeltme sansimiz olmaz
+            TestNG bunun icin bir alternatif olusturmus
+            Bu alternatifte Assert class'indaki static method'lari kullanmak yerine
+            SoftAssert class'indan bir obje olusturup
+            o obje uzerinden istedigimiz testleri yapiyoruz
+            softassert objesi ile yapilan assertion'lar failed olsa da testimiz calismaya devam eder
+            ancak testlerin sonucunu gormek istedigimizde
+            softassert.assertAll() ile tum yaptigi testleri raporlamasini soyleyebiliriz
+            assertAll() method'unun calistigi satirda
+            exception olabilir
          */
+        SoftAssert softAssert = new SoftAssert();
 
-        SoftAssert softAssert=new SoftAssert();
+        softAssert.assertTrue(5>8,"true testi failed"); //
 
-        softAssert.assertTrue(5>8,"True testi faild");
-        softAssert.assertFalse(8==8,"False testi faild");
-        softAssert.assertEquals(5,9,"Equals testi faild");
-        softAssert.assertNotEquals(6,6,"NotEquals testi faild");
+        softAssert.assertFalse(8==8,"false testi failed");
+
+        softAssert.assertEquals(5,9,"equals testi failed");
+
+        softAssert.assertNotEquals(6,6,"not equals testi failed");
+
+
 
         softAssert.assertAll();
-
-
     }
 }

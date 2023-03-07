@@ -19,7 +19,7 @@ public class C04_FaceebookLogin {
 
         //3- Faker class’ini kullanarak email ve sifre degerlerini yazdirip, giris butonuna basin
         Faker faker=new Faker();
-        facebookPage.emailKutusu.sendKeys(faker.internet().emailAddress());
+        facebookPage.emailKutusu.sendKeys("abc"+faker.internet().emailAddress());
         facebookPage.passwordKutusu.sendKeys(faker.internet().password());
         facebookPage.loginButtonu.click();
 

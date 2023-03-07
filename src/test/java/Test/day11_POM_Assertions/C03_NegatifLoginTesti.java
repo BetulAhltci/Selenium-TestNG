@@ -1,10 +1,13 @@
 package Test.day11_POM_Assertions;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.QdPage;
 import unitilites.ConfigReader;
 import unitilites.Driver;
+import unitilites.ReusableMethods;
+
 
 public class C03_NegatifLoginTesti {
 
@@ -15,36 +18,55 @@ public class C03_NegatifLoginTesti {
     // 2- gecersiz username, gecerli password
     // 3- gecersiz username, gecersiz password
 
-    QdPage qdPage=new QdPage();
+    QdPage qdPage= new QdPage();
 
-@Test
-public void negatifLogin1(){
-    qdPage=new QdPage();
-    Driver.getDriver().get(ConfigReader.getProperty("qdUrl"));
-    qdPage.ilkLoginLinli.click();
-    qdPage.emailKutusu.sendKeys(ConfigReader.getProperty("qdGecerliUsername"));
-    qdPage.passwordKutusu.sendKeys(ConfigReader.getProperty("qdGecersizPasword"));
-    qdPage.loginButton.click();
-    Assert.assertTrue(qdPage.emailKutusu.isEnabled());
-}
+    @Test(groups = "smoke")
+    public void negatifLogin1(){
+        ReusableMethods.bekle(3);
+        qdPage= new QdPage();
+        Driver.getDriver().get(ConfigReader.getProperty("qdUrl"));
+        Driver.getDriver().findElement(By.xpath("//a[text()='Accept']")).click();
+        qdPage.ilkLoginLinli.click();
+        qdPage.emailKutusu.sendKeys(ConfigReader.getProperty("qdGecerliUsername"));
+        qdPage.passwordKutusu.sendKeys(ConfigReader.getProperty("qdGecersizPassword"));
+        //Driver.getDriver().findElement(By.xpath("//a[text()='Accept']")).click();
+        qdPage.loginButton.click();
+
+        Assert.assertTrue(qdPage.emailKutusu.isEnabled());
+        Driver.closeDriver();
+    }
+
+
     @Test(groups = {"smoke","mr1"})
     public void negatifLogin2(){
-    qdPage=new QdPage();
+        qdPage= new QdPage();
         Driver.getDriver().get(ConfigReader.getProperty("qdUrl"));
+       Driver.getDriver().findElement(By.xpath("//a[text()='Accept']")).click();
         qdPage.ilkLoginLinli.click();
         qdPage.emailKutusu.sendKeys(ConfigReader.getProperty("qdGecersizUsername"));
-        qdPage.passwordKutusu.sendKeys(ConfigReader.getProperty("qdGecerlizPasword"));
+        qdPage.passwordKutusu.sendKeys(ConfigReader.getProperty("qdGecerliPassword"));
+       // Driver.getDriver().findElement(By.xpath("//a[text()='Accept']")).click();
         qdPage.loginButton.click();
+
         Assert.assertTrue(qdPage.emailKutusu.isEnabled());
+        Driver.closeDriver();
     }
+
     @Test
     public void negatifLogin3(){
-    qdPage=new QdPage();
+        qdPage= new QdPage();
         Driver.getDriver().get(ConfigReader.getProperty("qdUrl"));
+        Driver.getDriver().findElement(By.xpath("//a[text()='Accept']")).click();
+        ReusableMethods.bekle(4);
         qdPage.ilkLoginLinli.click();
         qdPage.emailKutusu.sendKeys(ConfigReader.getProperty("qdGecersizUsername"));
-        qdPage.passwordKutusu.sendKeys(ConfigReader.getProperty("qdGecersizPasword"));
+        qdPage.passwordKutusu.sendKeys(ConfigReader.getProperty("qdGecersizPassword"));
+        ReusableMethods.bekle(4);
+       // Driver.getDriver().findElement(By.xpath("//a[text()='Accept']")).click();
         qdPage.loginButton.click();
+
         Assert.assertTrue(qdPage.emailKutusu.isEnabled());
+        Driver.closeDriver();
     }
+
 }

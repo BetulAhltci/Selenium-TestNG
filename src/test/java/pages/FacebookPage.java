@@ -10,13 +10,13 @@ public class FacebookPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(xpath = "//input[@placeholder='Email address or phone number']")
+    @FindBy(id = "email")
     public WebElement emailKutusu;
 
-    @FindBy(xpath = "/input[@placeholder='Password']" )
+    @FindBy(xpath = "//input[@type='password']")
     public WebElement passwordKutusu;
 
-    @FindBy(xpath = "//button[@name='login']")
+    @FindBy(xpath = "//button[@data-testid='royal_login_button']")
     public WebElement loginButtonu;
 
     @FindBy(xpath = "//div[@class='_9ay7']")

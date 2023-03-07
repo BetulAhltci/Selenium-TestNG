@@ -128,4 +128,16 @@ public class ReusableMethods {
         });
         return element;
     }
+    //==========Return a list of string given a list of Web Element====////
+    public static List<String> stringListeCevir(List<WebElement> list) {
+        List<String> elemTexts = new ArrayList<>();
+        for (WebElement el : list) {
+            if (!el.getText().isEmpty()) {
+                elemTexts.add(el.getText());
+            }
+        }
+        return elemTexts;
+    }
+
+
 }

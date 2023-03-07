@@ -26,10 +26,10 @@ public class AmazonPage {
     @FindBy(xpath = "//*[@id=\"search\"]/span/div/h1/div/div[1]/div/div")
     public WebElement aramaSonucElementi;
 
-    @FindBy(xpath = "(//img[@class='s-image'])[1]")
+    @FindBy(xpath = "(//span[@class='a-size-base-plus a-color-base a-text-normal'])[1]")
     public WebElement ilkUrun;
 
     @FindBy(xpath = "//span[@id='productTitle']")
     public WebElement ilkUrunIsimElementi;
-
+////img[@class='s-image'])[1]
 }
